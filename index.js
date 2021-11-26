@@ -8,6 +8,8 @@ const pusherClient = new Pusher(pusherConfig);
 const app = express(); // (2)
 app.use(bodyParser.json());
 
+const PORT  =  process.env.PORT || 4000
+
 app.get('/', function(req, res) { // (3)
     console.log(' hi: ');
     res.send("hi");
@@ -37,6 +39,17 @@ app.post('/users/:name/messages', function(req, res) { // (5)
     res.sendStatus(204);
 });
 
-app.listen(4000, function() { // (6)
-    console.log('App listening on port 4000');
+// SINGLE FUNCTION *
+app.post('/users/sendMessage', function(req, res) { // (5)
+    console.log('Configs: ' + req.body.messageBody);
+    let body =  req.body.messageBody
+    pusherClient.trigger( body.chatId, 'message', {
+        name: body.name,
+        message: body.message
+    });
+    res.sendStatus(204);
+});
+
+app.listen(PORT, function() { // (6)
+    console.log('Maqthab pusher app listening on port 4000');
 });
