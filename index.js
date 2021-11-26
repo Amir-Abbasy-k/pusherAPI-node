@@ -8,7 +8,7 @@ const pusherClient = new Pusher(pusherConfig);
 const app = express(); // (2)
 app.use(bodyParser.json());
 
-const PORT  =  4000
+var port = process.env.PORT || 8080;
 
 app.get('/', function(req, res) { // (3)
     console.log(' hi: ');
