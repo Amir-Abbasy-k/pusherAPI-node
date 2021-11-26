@@ -43,7 +43,7 @@ app.post('/users/:name/messages', function(req, res) { // (5)
 app.post('/users/sendMessage', function(req, res) { // (5)
     console.log('Configs: ' + req.body.messageBody);
     let body =  req.body.messageBody
-    pusherClient.trigger( body.chatId, 'message', {
+    pusherClient.trigger( req.body.chatId, 'message', {
         name: body.name,
         message: body.message
     });
