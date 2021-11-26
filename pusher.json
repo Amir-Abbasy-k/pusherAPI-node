@@ -4,6 +4,6 @@
         "secret":"a66950edc1d034ae9f13",
         "cluster":"ap2",
         "encrypted":true,
-        "restServer": "https://node-test-amir.herokuapp.com/"
+        "restServer": "https://pusher-maqthab-node.herokuapp.com/"
     }
 
