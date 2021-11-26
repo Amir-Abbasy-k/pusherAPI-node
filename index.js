@@ -50,6 +50,6 @@ app.post('/users/sendMessage', function(req, res) { // (5)
     res.sendStatus(204);
 });
 
-app.listen(PORT, function() { // (6)
+app.listen(port, function() { // (6)
     console.log('Maqthab pusher app listening on port 4000');
 });
